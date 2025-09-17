@@ -1,0 +1,190 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "F:\\LTCSDL\\New folder\\QLBV\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F5CC317E-3004-49A1-85D3-3538AE5916C5}|QLBV.WEB\\QLBV.WEB.csproj|f:\\ltcsdl\\new folder\\qlbv\\qlbv.web\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F5CC317E-3004-49A1-85D3-3538AE5916C5}|QLBV.WEB\\QLBV.WEB.csproj|solutionrelative:qlbv.web\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F5CC317E-3004-49A1-85D3-3538AE5916C5}|QLBV.WEB\\QLBV.WEB.csproj|f:\\ltcsdl\\new folder\\qlbv\\qlbv.web\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F5CC317E-3004-49A1-85D3-3538AE5916C5}|QLBV.WEB\\QLBV.WEB.csproj|solutionrelative:qlbv.web\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F5CC317E-3004-49A1-85D3-3538AE5916C5}|QLBV.WEB\\QLBV.WEB.csproj|f:\\ltcsdl\\new folder\\qlbv\\qlbv.web\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F5CC317E-3004-49A1-85D3-3538AE5916C5}|QLBV.WEB\\QLBV.WEB.csproj|solutionrelative:qlbv.web\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F5CC317E-3004-49A1-85D3-3538AE5916C5}|QLBV.WEB\\QLBV.WEB.csproj|f:\\ltcsdl\\new folder\\qlbv\\qlbv.web\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{F5CC317E-3004-49A1-85D3-3538AE5916C5}|QLBV.WEB\\QLBV.WEB.csproj|solutionrelative:qlbv.web\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F5CC317E-3004-49A1-85D3-3538AE5916C5}|QLBV.WEB\\QLBV.WEB.csproj|f:\\ltcsdl\\new folder\\qlbv\\qlbv.web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F5CC317E-3004-49A1-85D3-3538AE5916C5}|QLBV.WEB\\QLBV.WEB.csproj|solutionrelative:qlbv.web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F5CC317E-3004-49A1-85D3-3538AE5916C5}|QLBV.WEB\\QLBV.WEB.csproj|f:\\ltcsdl\\new folder\\qlbv\\qlbv.web\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F5CC317E-3004-49A1-85D3-3538AE5916C5}|QLBV.WEB\\QLBV.WEB.csproj|solutionrelative:qlbv.web\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4A10477-5B2B-4526-8631-09AE275E2201}|QLBV.BLL\\QLBV.BLL.csproj|f:\\ltcsdl\\new folder\\qlbv\\qlbv.bll\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4A10477-5B2B-4526-8631-09AE275E2201}|QLBV.BLL\\QLBV.BLL.csproj|solutionrelative:qlbv.bll\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1506729C-9FD6-4AF7-88BC-FF309EA12CDA}|QLBV.DAL\\QLBV.DAL.csproj|f:\\ltcsdl\\new folder\\qlbv\\qlbv.dal\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1506729C-9FD6-4AF7-88BC-FF309EA12CDA}|QLBV.DAL\\QLBV.DAL.csproj|solutionrelative:qlbv.dal\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1506729C-9FD6-4AF7-88BC-FF309EA12CDA}|QLBV.DAL\\QLBV.DAL.csproj|f:\\ltcsdl\\new folder\\qlbv\\qlbv.dal\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1506729C-9FD6-4AF7-88BC-FF309EA12CDA}|QLBV.DAL\\QLBV.DAL.csproj|solutionrelative:qlbv.dal\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E232FC45-1FD4-4EDE-8E47-C90E00E22E27}|QLBV.DTO\\QLBV.DTO.csproj|f:\\ltcsdl\\new folder\\qlbv\\qlbv.dto\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E232FC45-1FD4-4EDE-8E47-C90E00E22E27}|QLBV.DTO\\QLBV.DTO.csproj|solutionrelative:qlbv.dto\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "F:\\LTCSDL\\New folder\\QLBV\\QLBV.WEB\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "QLBV.WEB\\Controllers\\AccountController.cs",
+              "ToolTip": "F:\\LTCSDL\\New folder\\QLBV\\QLBV.WEB\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "QLBV.WEB\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-17T03:49:29.713Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "F:\\LTCSDL\\New folder\\QLBV\\QLBV.WEB\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "QLBV.WEB\\Views\\Home\\Index.cshtml",
+              "ToolTip": "F:\\LTCSDL\\New folder\\QLBV\\QLBV.WEB\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "QLBV.WEB\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACwAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-17T03:47:56.283Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "F:\\LTCSDL\\New folder\\QLBV\\QLBV.WEB\\Program.cs",
+              "RelativeDocumentMoniker": "QLBV.WEB\\Program.cs",
+              "ToolTip": "F:\\LTCSDL\\New folder\\QLBV\\QLBV.WEB\\Program.cs",
+              "RelativeToolTip": "QLBV.WEB\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-17T03:44:00.912Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "F:\\LTCSDL\\New folder\\QLBV\\QLBV.WEB\\appsettings.json",
+              "RelativeDocumentMoniker": "QLBV.WEB\\appsettings.json",
+              "ToolTip": "F:\\LTCSDL\\New folder\\QLBV\\QLBV.WEB\\appsettings.json",
+              "RelativeToolTip": "QLBV.WEB\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-09-17T03:42:12.899Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "F:\\LTCSDL\\New folder\\QLBV\\QLBV.WEB\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "QLBV.WEB\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "F:\\LTCSDL\\New folder\\QLBV\\QLBV.WEB\\Views\\Shared\\_Layout.cshtml*",
+              "RelativeToolTip": "QLBV.WEB\\Views\\Shared\\_Layout.cshtml*",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAAADgAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-17T03:48:48.627Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "F:\\LTCSDL\\New folder\\QLBV\\QLBV.WEB\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "QLBV.WEB\\Controllers\\HomeController.cs",
+              "ToolTip": "F:\\LTCSDL\\New folder\\QLBV\\QLBV.WEB\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "QLBV.WEB\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-17T03:47:05.842Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "F:\\LTCSDL\\New folder\\QLBV\\QLBV.BLL\\UserService.cs",
+              "RelativeDocumentMoniker": "QLBV.BLL\\UserService.cs",
+              "ToolTip": "F:\\LTCSDL\\New folder\\QLBV\\QLBV.BLL\\UserService.cs",
+              "RelativeToolTip": "QLBV.BLL\\UserService.cs",
+              "ViewState": "AgIAACsAAAAAAAAAAAAewD4AAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-17T03:39:28.816Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "User.cs",
+              "DocumentMoniker": "F:\\LTCSDL\\New folder\\QLBV\\QLBV.DAL\\Entities\\User.cs",
+              "RelativeDocumentMoniker": "QLBV.DAL\\Entities\\User.cs",
+              "ToolTip": "F:\\LTCSDL\\New folder\\QLBV\\QLBV.DAL\\Entities\\User.cs",
+              "RelativeToolTip": "QLBV.DAL\\Entities\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-17T03:38:45.35Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "F:\\LTCSDL\\New folder\\QLBV\\QLBV.DAL\\Repositories\\UserRepository.cs",
+              "RelativeDocumentMoniker": "QLBV.DAL\\Repositories\\UserRepository.cs",
+              "ToolTip": "F:\\LTCSDL\\New folder\\QLBV\\QLBV.DAL\\Repositories\\UserRepository.cs",
+              "RelativeToolTip": "QLBV.DAL\\Repositories\\UserRepository.cs",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAgwD8AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-17T03:37:15.791Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "UserDto.cs",
+              "DocumentMoniker": "F:\\LTCSDL\\New folder\\QLBV\\QLBV.DTO\\UserDto.cs",
+              "RelativeDocumentMoniker": "QLBV.DTO\\UserDto.cs",
+              "ToolTip": "F:\\LTCSDL\\New folder\\QLBV\\QLBV.DTO\\UserDto.cs",
+              "RelativeToolTip": "QLBV.DTO\\UserDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-17T03:35:47.208Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

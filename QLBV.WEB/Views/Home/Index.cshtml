@@ -1,0 +1,55 @@
+﻿@{
+    ViewData["Title"] = "Trang chủ";
+}
+
+<section id="hero" class="relative h-screen flex flex-col items-center justify-center text-center text-white overflow-hidden">
+    <!-- Layer ảnh nền -->
+    <div id="hero-bg" class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000" 
+         style="background-image: url('https://res.cloudinary.com/dtnfkk7ih/image/upload/v1758086782/Gemini_Generated_Image_c77jg7c77jg7c77j_lk5emq.png'); opacity: 1;"></div>
+    <div id="hero-bg-next" class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-0"></div>
+
+    <!-- Nội dung -->
+    <h1 class="text-5xl sm:text-6xl md:text-7xl font-extrabold animate-fade-in relative z-10">
+        Hệ thống Đặt Lịch <span class="text-cyan">Khám Online</span>
+    </h1>
+    <p class="mt-4 text-xl sm:text-2xl max-w-3xl animate-fade-in relative z-10">
+        Đặt lịch khám nhanh chóng, tiện lợi và chính xác. Sức khỏe của bạn là ưu tiên hàng đầu.
+    </p>
+    <div class="mt-8 space-x-4 animate-fade-in relative z-10">
+        <a href="/Appointment/Create" class="inline-block bg-cyan-500 text-white font-bold py-4 px-10 rounded-full shadow-lg hover:bg-cyan-600 transition transform hover:scale-105">
+            Đặt Lịch Ngay
+        </a>
+        <a href="/Account/Login" class="inline-block border-2 border-cyan-500 text-cyan-500 font-bold py-4 px-10 rounded-full hover:bg-cyan-500 hover:text-white transition transform hover:scale-105">
+            Đăng Nhập
+        </a>
+    </div>
+</section>
+
+<script>
+    const heroBg = document.getElementById('hero-bg');
+    const heroBgNext = document.getElementById('hero-bg-next');
+
+    const images = [
+        'https://res.cloudinary.com/dtnfkk7ih/image/upload/v1758086782/Gemini_Generated_Image_c77jg7c77jg7c77j_lk5emq.png',
+        'https://res.cloudinary.com/dtnfkk7ih/image/upload/v1758086881/Gemini_Generated_Image_5800wq5800wq5800_ntdhvo.png',
+        'https://res.cloudinary.com/dtnfkk7ih/image/upload/v1758086833/Gemini_Generated_Image_onr2imonr2imonr2_jqynqw.png'
+    ];
+
+    let currentIndex = 0;
+
+    function changeHeroImage() {
+    const nextIndex = (currentIndex + 1) % images.length;
+
+    // Thêm lớp fade
+    heroBg.style.transition = 'opacity 1s ease-in-out';
+    heroBg.style.opacity = 0;
+
+    setTimeout(() => {
+        heroBg.style.backgroundImage = `url('${images[nextIndex]}')`;
+        heroBg.style.opacity = 1;
+        currentIndex = nextIndex;
+    }, 1000); // duration fade
+}
+
+setInterval(changeHeroImage, 5000);
+</script>

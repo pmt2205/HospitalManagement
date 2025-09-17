@@ -1,0 +1,9 @@
+F:\LTCSDL\New folder\QLBV\QLBV.DAL\bin\Debug\QLBV.DAL.dll
+F:\LTCSDL\New folder\QLBV\QLBV.DAL\bin\Debug\QLBV.DAL.pdb
+F:\LTCSDL\New folder\QLBV\QLBV.DAL\bin\Debug\QLBV.DTO.dll
+F:\LTCSDL\New folder\QLBV\QLBV.DAL\bin\Debug\QLBV.DTO.pdb
+F:\LTCSDL\New folder\QLBV\QLBV.DAL\obj\Debug\QLBV.DAL.csproj.AssemblyReference.cache
+F:\LTCSDL\New folder\QLBV\QLBV.DAL\obj\Debug\QLBV.DAL.csproj.CoreCompileInputs.cache
+F:\LTCSDL\New folder\QLBV\QLBV.DAL\obj\Debug\QLBV.DAL.csproj.Up2Date
+F:\LTCSDL\New folder\QLBV\QLBV.DAL\obj\Debug\QLBV.DAL.dll
+F:\LTCSDL\New folder\QLBV\QLBV.DAL\obj\Debug\QLBV.DAL.pdb
