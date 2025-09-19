@@ -41,8 +41,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Appointment.cs" />
+    <Compile Include="Entities\Department.cs" />
+    <Compile Include="Entities\Disease.cs" />
+    <Compile Include="Entities\DiseaseCategory.cs" />
+    <Compile Include="Entities\Doctor.cs" />
+    <Compile Include="Entities\Invoice.cs" />
+    <Compile Include="Entities\Patient.cs" />
+    <Compile Include="Entities\Schedule.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\AppointmentRepository.cs" />
+    <Compile Include="Repositories\DepartmentRepository.cs" />
+    <Compile Include="Repositories\DiseaseCategoryRepository.cs" />
+    <Compile Include="Repositories\DiseaseRepository.cs" />
+    <Compile Include="Repositories\DoctorRepository.cs" />
+    <Compile Include="Repositories\PatientRepository.cs" />
+    <Compile Include="Repositories\ScheduleRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>

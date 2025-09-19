@@ -1,0 +1,29 @@
+﻿@model List<QLBV.DTO.DepartmentDto>
+@{
+    ViewData["Title"] = "Chọn khoa";
+}
+
+<div class="relative py-24 px-6 md:px-0 bg-gray-50 flex-grow animate-fade-in">
+    <div class="container mx-auto max-w-4xl">
+        <h2 class="text-3xl md:text-4xl font-extrabold text-center text-gray-800 mb-8 leading-tight">
+            Chọn khoa để đặt lịch
+        </h2>
+        <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+            Vui lòng chọn một khoa từ danh sách dưới đây để xem danh sách các bác sĩ và đặt lịch hẹn khám.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            @foreach (var dept in Model)
+            {
+                    <a href="/Appointment/Doctors?departmentId=@dept.DepartmentId" 
+                       class="bg-white p-6 border border-gray-200 rounded-lg shadow-md hover:shadow-lg hover:border-cyan-400 transition-all duration-300 transform hover:-translate-y-1">
+                        <h3 class="text-lg font-semibold text-cyan-600 mb-2">@dept.Name</h3>
+                        <p class="text-sm text-gray-500">
+                        @* Thêm mô tả ngắn về khoa nếu có *@
+                            Chuyên về các bệnh lý liên quan đến @dept.Name.
+                        </p>
+                    </a>
+            }
+        </div>
+    </div>
+</div>

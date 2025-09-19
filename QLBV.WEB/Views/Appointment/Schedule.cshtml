@@ -1,0 +1,126 @@
+﻿@model List<QLBV.DTO.ScheduleDto>
+@{
+	ViewData["Title"] = "Chọn lịch";
+}
+
+<div class="relative py-24 px-6 md:px-0 bg-gray-50 flex-grow animate-fade-in">
+	<div class="container mx-auto max-w-2xl">
+		<h2 class="text-3xl md:text-4xl font-extrabold text-center text-gray-800 mb-8 leading-tight">
+			Chọn lịch khám
+		</h2>
+
+		@if (TempData["Error"] != null)
+		{
+					<div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-6 rounded-md" role="alert">
+						<p>@TempData["Error"]</p>
+					</div>
+		}
+
+		@if (ViewBag.Success != null)
+		{
+					<div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-6 rounded-md" role="alert">
+						<p>@ViewBag.Success</p>
+					</div>
+		}
+
+		@if (Model != null && Model.Any())
+		{
+					<div class="bg-white p-8 rounded-lg shadow-xl">
+						<p class="text-center text-gray-600 mb-8">
+							Vui lòng chọn lịch khám phù hợp và điền thông tin chi tiết để hoàn tất đặt lịch.
+						</p>
+						<form method="post" action="/Appointment/Book" class="space-y-6">
+							<input type="hidden" name="DoctorId" value="@ViewBag.DoctorId" />
+
+							<div>
+								<label for="scheduleSelect" class="block text-gray-700 font-semibold mb-2">Chọn lịch trống:</label>
+								<select id="scheduleSelect" name="ScheduleId" class="block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition" required>
+									<option value="">-- Chọn lịch khám --</option>
+							@foreach (var sched in Model)
+							{
+												<option value="@sched.ScheduleId">
+									@sched.WorkDate.ToString("dd/MM/yyyy") - @sched.StartTime.ToString(@"hh\:mm") ~ @sched.EndTime.ToString(@"hh\:mm")
+												</option>
+							}
+								</select>
+							</div>
+
+							<div>
+								<label for="categorySelect" class="block text-gray-700 font-semibold mb-2">Chọn loại bệnh:</label>
+								<select id="categorySelect" name="DiseaseCategoryId" class="block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition" required>
+									<option value="">-- Chọn loại bệnh --</option>
+							@if (ViewBag.DiseaseCategories != null)
+							{
+								foreach (var cat in ViewBag.DiseaseCategories)
+								{
+															<option value="@cat.DiseaseCategoryId">@cat.Name</option>
+								}
+							}
+								</select>
+							</div>
+
+							<div>
+								<label for="diseaseSelect" class="block text-gray-700 font-semibold mb-2">Chọn bệnh:</label>
+								<select id="diseaseSelect" name="DiseaseId" class="block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition" required>
+									<option value="">-- Chọn bệnh --</option>
+								</select>
+							</div>
+
+								<div>
+			<label for="amount" class="block text-gray-700 font-semibold mb-2">Số tiền thanh toán:</label>
+			<input id="amount" type="text" 
+				   value="@ViewBag.TotalFee?.ToString("N0") VNĐ" 
+				   class="block w-full px-4 py-3 bg-gray-100 border border-gray-300 rounded-lg shadow-sm focus:outline-none cursor-not-allowed" 
+				   readonly />
+		</div>
+
+
+							<div>
+								<label for="paymentMethod" class="block text-gray-700 font-semibold mb-2">Phương thức thanh toán:</label>
+								<select id="paymentMethod" name="PaymentMethod" class="block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition" required>
+									<option value="Cash">Tiền mặt</option>
+									<option value="Momo">Momo</option>
+									<option value="VNPay">VNPay</option>
+								</select>
+							</div>
+
+							<div class="flex justify-center mt-8">
+								<button type="submit" class="w-full md:w-auto bg-cyan-600 text-white font-semibold py-3 px-8 rounded-full hover:bg-cyan-700 transition-colors duration-300 transform hover:scale-105 shadow-lg">
+									Đặt lịch ngay
+								</button>
+							</div>
+						</form>
+					</div>
+		}
+		else
+		{
+					<div class="text-center text-gray-500 py-12">
+						<p>Bác sĩ không có lịch khám trống vào lúc này.</p>
+						<a href="/Appointment/Doctors?departmentId=@ViewBag.DepartmentId" class="mt-4 inline-block text-cyan-600 hover:text-cyan-800 transition-colors duration-300">Quay lại danh sách bác sĩ</a>
+					</div>
+		}
+	</div>
+</div>
+
+@section Scripts {
+			<script>
+				const categorySelect = document.getElementById("categorySelect");
+				const diseaseSelect = document.getElementById("diseaseSelect");
+
+				categorySelect.addEventListener("change", function() {
+					const categoryId = this.value;
+					if(categoryId) {
+						fetch(`/Appointment/Diseases?categoryId=${categoryId}`)
+							.then(res => res.json())
+							.then(data => {
+								diseaseSelect.innerHTML = "<option value=''>-- Chọn bệnh --</option>";
+								data.forEach(d => {
+									diseaseSelect.innerHTML += `<option value="${d.diseaseId}">${d.name}</option>`;
+								});
+							});
+					} else {
+						diseaseSelect.innerHTML = "<option value=''>-- Chọn bệnh --</option>";
+					}
+				});
+			</script>
+}

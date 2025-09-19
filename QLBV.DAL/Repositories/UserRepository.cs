@@ -44,14 +44,15 @@ namespace QLBV.DAL.Repositories
             return null;
         }
 
-        public void Add(User user)
+        public int Add(User user)
         {
             using (var conn = new SqlConnection(_connectionString))
             {
                 conn.Open();
-                var cmd = new SqlCommand(
-                    "INSERT INTO [User] (Username, PasswordHash, FullName, Email, Role) " +
-                    "VALUES (@Username, @PasswordHash, @FullName, @Email, @Role)", conn);
+                var cmd = new SqlCommand(@"
+            INSERT INTO [User] (Username, PasswordHash, FullName, Email, Role)
+            VALUES (@Username, @PasswordHash, @FullName, @Email, @Role);
+            SELECT SCOPE_IDENTITY();", conn);
 
                 cmd.Parameters.AddWithValue("@Username", user.Username);
                 cmd.Parameters.AddWithValue("@PasswordHash", user.PasswordHash);
@@ -59,8 +60,11 @@ namespace QLBV.DAL.Repositories
                 cmd.Parameters.AddWithValue("@Email", user.Email);
                 cmd.Parameters.AddWithValue("@Role", user.Role);
 
-                cmd.ExecuteNonQuery();
+                // Lấy ID vừa insert
+                return Convert.ToInt32(cmd.ExecuteScalar());
             }
         }
+
+
     }
 }

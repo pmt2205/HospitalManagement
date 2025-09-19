@@ -1,56 +1,54 @@
-using QLBV.DAL.Repositories;
+Ôªøusing QLBV.DAL.Repositories;
 using QLBV.BLL;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
-using System.Text;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// --- C?u hÏnh Connection string ---
+// --- Connection string ---
 var connectionString = builder.Configuration.GetConnectionString("ClinicDb");
 
-// --- ??ng k˝ DAL & BLL ---
+// --- ƒêƒÉng k√Ω DAL repositories ---
 builder.Services.AddScoped<UserRepository>(_ => new UserRepository(connectionString));
+builder.Services.AddScoped<DoctorRepository>(_ => new DoctorRepository(connectionString));
+builder.Services.AddScoped<DepartmentRepository>(_ => new DepartmentRepository(connectionString));
+builder.Services.AddScoped<ScheduleRepository>(_ => new ScheduleRepository(connectionString));
+builder.Services.AddScoped<AppointmentRepository>(_ => new AppointmentRepository(connectionString));
+builder.Services.AddScoped<DiseaseCategoryRepository>(_ => new DiseaseCategoryRepository(connectionString));
+builder.Services.AddScoped<DiseaseRepository>(_ => new DiseaseRepository(connectionString));
+builder.Services.AddScoped<PatientRepository>(_ => new PatientRepository(connectionString));
+
+
+// --- ƒêƒÉng k√Ω BLL services ---
 builder.Services.AddScoped<UserService>();
+builder.Services.AddScoped<DoctorService>();
+builder.Services.AddScoped<DepartmentService>();
+builder.Services.AddScoped<ScheduleService>();
+builder.Services.AddScoped<AppointmentService>();
+builder.Services.AddScoped<DiseaseCategoryService>();
+builder.Services.AddScoped<DiseaseService>();
+builder.Services.AddScoped<MomoService>();
 
-// --- Add MVC ---
+
+// --- MVC ---
 builder.Services.AddControllersWithViews();
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession();
 
-// --- C?u hÏnh JWT Authentication ---
-var key = builder.Configuration["Jwt:Key"];
-var issuer = builder.Configuration["Jwt:Issuer"];
-
-builder.Services.AddAuthentication(options =>
-{
-    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-})
-.AddJwtBearer(options =>
-{
-    options.TokenValidationParameters = new TokenValidationParameters
+// --- Cookie Authentication ---
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
     {
-        ValidateIssuer = true,
-        ValidateAudience = false,
-        ValidateLifetime = true,
-        ValidateIssuerSigningKey = true,
-        ValidIssuer = issuer,
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key))
-    };
-
-    // L?y token t? Cookie
-    options.Events = new JwtBearerEvents
-    {
-        OnMessageReceived = context =>
-        {
-            context.Token = context.Request.Cookies["AuthToken"];
-            return Task.CompletedTask;
-        }
-    };
-});
+        options.LoginPath = "/Account/Login";
+        options.LogoutPath = "/Account/Logout";
+        options.ExpireTimeSpan = TimeSpan.FromHours(8);
+        options.SlidingExpiration = true;
+        options.Cookie.HttpOnly = true;
+        options.Cookie.Name = "ClinicAuth";
+    });
 
 var app = builder.Build();
 
-// --- HTTP pipeline ---
+// --- Pipeline ---
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
@@ -59,14 +57,12 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
 app.UseRouting();
 
-// ? ThÍm Authentication tr??c Authorization
+app.UseSession();
 app.UseAuthentication();
 app.UseAuthorization();
 
-// --- Route m?c ??nh ---
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");

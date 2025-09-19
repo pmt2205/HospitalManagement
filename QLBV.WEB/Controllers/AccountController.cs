@@ -1,50 +1,54 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using System.Security.Claims;
 using QLBV.BLL;
 using QLBV.DTO;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
+using QLBV.DAL.Repositories;
 
 namespace QLBV.WEB.Controllers
 {
     public class AccountController : Controller
     {
         private readonly UserService _userService;
-        private readonly IConfiguration _config;
+        private readonly PatientRepository _patientRepository;
 
-        public AccountController(UserService userService, IConfiguration config)
+
+        public AccountController(UserService userService, PatientRepository patientRepository)
         {
             _userService = userService;
-            _config = config;
+            _patientRepository = patientRepository;
         }
 
-        // GET: /Account/Register
         [HttpGet]
-        public IActionResult Register() => View();
+        public IActionResult Register()
+        {
+            return View();
+        }
 
-        // POST: /Account/Register
         [HttpPost]
         public IActionResult Register(UserDto dto, string password)
         {
-            if (ModelState.IsValid)
-            {
-                var success = _userService.Register(dto, password);
-                if (success)
-                    return RedirectToAction("Login");
+            if (!ModelState.IsValid)
+                return View(dto);
 
-                ModelState.AddModelError("", "Tên đăng nhập đã tồn tại!");
+            var success = _userService.Register(dto, password);
+            if (!success)
+            {
+                ModelState.AddModelError("", "Tên đăng nhập đã tồn tại.");
+                return View(dto);
             }
-            return View(dto);
+
+            TempData["Success"] = "Đăng ký thành công! Bạn có thể đăng nhập.";
+            return RedirectToAction("Login");
         }
 
-        // GET: /Account/Login
+
         [HttpGet]
         public IActionResult Login() => View();
 
-        // POST: /Account/Login
         [HttpPost]
-        public IActionResult Login(string username, string password)
+        public async Task<IActionResult> Login(string username, string password)
         {
             var user = _userService.Login(username, password);
             if (user == null)
@@ -53,44 +57,36 @@ namespace QLBV.WEB.Controllers
                 return View();
             }
 
-            // --- Tạo JWT token ---
-            var claims = new[]
+            var claims = new List<Claim>
             {
-                new Claim(ClaimTypes.Name, user.Username),
                 new Claim(ClaimTypes.NameIdentifier, user.UserId.ToString()),
+                new Claim(ClaimTypes.Name, user.FullName),
                 new Claim(ClaimTypes.Role, user.Role ?? "User")
             };
 
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
-            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-
-            var token = new JwtSecurityToken(
-                issuer: _config["Jwt:Issuer"],
-                audience: null,
-                claims: claims,
-                expires: DateTime.Now.AddHours(2),
-                signingCredentials: creds
+            var claimsIdentity = new ClaimsIdentity(
+                claims, CookieAuthenticationDefaults.AuthenticationScheme
             );
 
-            var tokenString = new JwtSecurityTokenHandler().WriteToken(token);
-
-            // --- Lưu JWT vào cookie ---
-            Response.Cookies.Append("AuthToken", tokenString, new CookieOptions
+            var authProperties = new AuthenticationProperties
             {
-                HttpOnly = true,
-                Secure = true, // bật HTTPS
-                Expires = DateTimeOffset.Now.AddHours(2),
-                SameSite = SameSiteMode.Strict
-            });
+                IsPersistent = true,
+                ExpiresUtc = DateTimeOffset.UtcNow.AddHours(8)
+            };
+
+            await HttpContext.SignInAsync(
+                CookieAuthenticationDefaults.AuthenticationScheme,
+                new ClaimsPrincipal(claimsIdentity),
+                authProperties
+            );
 
             return RedirectToAction("Index", "Home");
         }
 
-        // GET: /Account/Logout
         [HttpGet]
-        public IActionResult Logout()
+        public async Task<IActionResult> Logout()
         {
-            Response.Cookies.Delete("AuthToken");
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return RedirectToAction("Login");
         }
     }
