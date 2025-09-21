@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using QLBV.DAL.Entities;
+using QLBV.DTO;
 
 namespace QLBV.DAL.Repositories
 {
@@ -61,6 +62,37 @@ namespace QLBV.DAL.Repositories
 
                 cmd.ExecuteNonQuery();
             }
+        }
+
+        public PatientDto GetById(int patientId)
+        {
+            using (var conn = new SqlConnection(_conn))
+            {
+                conn.Open();
+                var cmd = new SqlCommand(@"
+            SELECT p.PatientId, p.UserId, u.FullName, p.DateOfBirth, p.Gender, p.Address
+            FROM Patient p
+            JOIN [User] u ON p.UserId = u.UserId
+            WHERE p.PatientId=@PatientId", conn);
+                cmd.Parameters.AddWithValue("@PatientId", patientId);
+
+                using (var reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        return new PatientDto
+                        {
+                            PatientId = (int)reader["PatientId"],
+                            UserId = (int)reader["UserId"],
+                            FullName = reader["FullName"].ToString(),
+                            DateOfBirth = (DateTime)reader["DateOfBirth"],
+                            Gender = reader["Gender"].ToString(),
+                            Address = reader["Address"].ToString()
+                        };
+                    }
+                }
+            }
+            return null;
         }
     }
 }

@@ -7,3 +7,8 @@ F:\LTCSDL\New folder\QLBV\QLBV.DAL\obj\Debug\QLBV.DAL.csproj.CoreCompileInputs.c
 F:\LTCSDL\New folder\QLBV\QLBV.DAL\obj\Debug\QLBV.DAL.csproj.Up2Date
 F:\LTCSDL\New folder\QLBV\QLBV.DAL\obj\Debug\QLBV.DAL.dll
 F:\LTCSDL\New folder\QLBV\QLBV.DAL\obj\Debug\QLBV.DAL.pdb
+F:\LTCSDL\New folder\QLBV\QLBV.DAL\bin\Debug\QLBV.DAL.dll.config
+F:\LTCSDL\New folder\QLBV\QLBV.DAL\bin\Debug\EntityFramework.dll
+F:\LTCSDL\New folder\QLBV\QLBV.DAL\bin\Debug\EntityFramework.SqlServer.dll
+F:\LTCSDL\New folder\QLBV\QLBV.DAL\bin\Debug\EntityFramework.xml
+F:\LTCSDL\New folder\QLBV\QLBV.DAL\bin\Debug\EntityFramework.SqlServer.xml

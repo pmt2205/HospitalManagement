@@ -36,5 +36,32 @@ namespace QLBV.DAL.Repositories
             }
             return list;
         }
+
+        public DiseaseDto GetById(int diseaseId)
+        {
+            using (var conn = new SqlConnection(_conn))
+            {
+                conn.Open();
+                using (var cmd = new SqlCommand(@"
+                    SELECT DiseaseId, Name, Description
+                    FROM Disease
+                    WHERE DiseaseId=@DiseaseId", conn))
+                {
+                    cmd.Parameters.AddWithValue("@DiseaseId", diseaseId);
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            return new DiseaseDto
+                            {
+                                DiseaseId = (int)reader["DiseaseId"],
+                                Name = reader["Name"].ToString()
+                            };
+                        }
+                    }
+                }
+            }
+            return null;
+        }
     }
 }

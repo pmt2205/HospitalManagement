@@ -34,10 +34,19 @@ namespace QLBV.BLL
                 string secretKey = _config["Momo:SecretKey"];
                 string redirectUrl = _config["Momo:RedirectUrl"];
                 string ipnUrl = _config["Momo:IpnUrl"];
-                string requestType = _config["Momo:RequestType"];
+                string requestType = _config["Momo:RequestType"] ?? "captureWallet";
 
-                string rawHash = $"accessKey={accessKey}&amount={amount}&extraData=&ipnUrl={ipnUrl}&orderId={orderId}&orderInfo={orderInfo}&partnerCode={partnerCode}&redirectUrl={redirectUrl}&requestType={requestType}";
+                // requestId: chuỗi duy nhất
+                string requestId = DateTimeOffset.Now.ToUnixTimeMilliseconds().ToString();
 
+                // amount phải là số nguyên (MoMo không nhận số lẻ)
+                string amountStr = ((int)amount).ToString();
+
+                // Chuỗi rawHash theo đúng thứ tự MoMo yêu cầu
+                string rawHash =
+                    $"accessKey={accessKey}&amount={amountStr}&extraData=&ipnUrl={ipnUrl}&orderId={orderId}&orderInfo={orderInfo}&partnerCode={partnerCode}&redirectUrl={redirectUrl}&requestId={requestId}&requestType={requestType}";
+
+                // Tạo chữ ký HMAC SHA256
                 string signature;
                 using (var hmac = new HMACSHA256(Encoding.UTF8.GetBytes(secretKey)))
                 {
@@ -49,14 +58,16 @@ namespace QLBV.BLL
                 {
                     partnerCode,
                     accessKey,
+                    requestId,
                     requestType,
-                    amount = amount.ToString(),
+                    amount = amountStr,
                     orderId,
                     orderInfo,
                     redirectUrl,
                     ipnUrl,
                     extraData = "",
-                    signature
+                    signature,
+                    lang = "vi"
                 };
 
                 using (var client = new HttpClient())
@@ -68,14 +79,17 @@ namespace QLBV.BLL
 
                     if (jobj["resultCode"]?.ToString() != "0")
                     {
+                        // ghi log để debug
+                        Console.WriteLine("MoMo error: " + json);
                         return null;
                     }
 
                     return jobj["payUrl"]?.ToString();
                 }
             }
-            catch
+            catch (Exception ex)
             {
+                Console.WriteLine("MoMo exception: " + ex.Message);
                 return null;
             }
         }

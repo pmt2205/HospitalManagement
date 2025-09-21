@@ -11,17 +11,25 @@ namespace QLBV.BLL
         private readonly ScheduleRepository _scheduleRepo;
         private readonly DoctorRepository _doctorRepo;
         private readonly DepartmentRepository _departmentRepo;
+        private readonly PatientRepository _patientRepo; // thêm repo Patient nếu có
+        private readonly DiseaseRepository _diseaseRepo; // Thêm
+
 
         public AppointmentService(
             AppointmentRepository appointmentRepo,
             ScheduleRepository scheduleRepo,
             DoctorRepository doctorRepo,
-            DepartmentRepository departmentRepo)
+            DepartmentRepository departmentRepo,
+            PatientRepository patientRepo,
+            DiseaseRepository diseaseRepo) // thêm
+
         {
             _appointmentRepo = appointmentRepo;
             _scheduleRepo = scheduleRepo;
             _doctorRepo = doctorRepo;
             _departmentRepo = departmentRepo;
+            _patientRepo = patientRepo;
+            _diseaseRepo = diseaseRepo;// thêm
         }
 
         public bool CheckScheduleAvailable(int scheduleId)
@@ -31,17 +39,13 @@ namespace QLBV.BLL
 
         public int BookAppointment(AppointmentDto dto, string paymentMethod)
         {
-            // Lấy doctor để tính phí
             var doctor = _doctorRepo.GetById(dto.DoctorId);
             var department = _departmentRepo.GetById(doctor.DepartmentId);
 
-            // Tổng phí = phí khoa + phụ thu bác sĩ
             decimal amount = department.BaseFee + doctor.ExtraFee;
 
-            // Tạo appointment
             int appointmentId = _appointmentRepo.CreateAppointment(dto);
 
-            // Tạo invoice
             _appointmentRepo.CreateInvoice(appointmentId, amount, paymentMethod);
 
             return appointmentId;
@@ -54,14 +58,37 @@ namespace QLBV.BLL
 
         public void MarkPaid(int appointmentId, string paymentMethod)
         {
-            // Muốn lấy amount chính xác thì lấy từ DB invoice hoặc tính lại như trên
-            // Ở đây giả sử invoice đã tạo từ BookAppointment
             _appointmentRepo.UpdateStatus(appointmentId, "Confirmed");
         }
 
         public ScheduleDto GetScheduleById(int scheduleId)
         {
             return _scheduleRepo.GetScheduleById(scheduleId);
+        }
+
+        // --- Bổ sung các phương thức để lấy chi tiết ---
+        public AppointmentDto GetAppointmentById(int appointmentId)
+        {
+            return _appointmentRepo.GetById(appointmentId);
+        }
+
+        public PatientDto GetPatientById(int patientId)
+        {
+            return _patientRepo.GetById(patientId);
+        }
+
+        public DoctorDto GetDoctorById(int doctorId)
+        {
+            return _doctorRepo.GetById(doctorId);
+        }
+
+        public DepartmentDto GetDepartmentById(int departmentId)
+        {
+            return _departmentRepo.GetById(departmentId);
+        }
+        public DiseaseDto GetDiseaseById(int diseaseId)
+        {
+            return _diseaseRepo.GetById(diseaseId);
         }
     }
 }

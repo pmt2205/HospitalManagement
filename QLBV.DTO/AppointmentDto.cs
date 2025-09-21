@@ -8,6 +8,8 @@ namespace QLBV.DTO
 {
     public class AppointmentDto
     {
+        public int AppointmentId { get; set; }   // Thêm
+
         public int PatientId { get; set; }
         public int DoctorId { get; set; }
         public int DiseaseId { get; set; }

@@ -129,7 +129,11 @@ namespace QLBV.WEB.Controllers
             if (paymentMethod == "Momo")
             {
                 string orderInfo = $"Thanh toán lịch khám #{appointmentId}";
-                string payUrl = await _momoService.CreatePaymentUrlAsync(appointmentId.ToString(), amount, orderInfo);
+
+                // ✅ tạo orderId duy nhất
+                string orderId = $"{appointmentId}_{DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()}";
+
+                string payUrl = await _momoService.CreatePaymentUrlAsync(orderId, amount, orderInfo);
 
                 if (string.IsNullOrEmpty(payUrl))
                 {
@@ -138,6 +142,7 @@ namespace QLBV.WEB.Controllers
 
                 return Redirect(payUrl);
             }
+
 
             // 7. Thành công
             return ReturnToSchedule(dto.DoctorId, null, "Đặt lịch thành công!");

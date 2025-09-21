@@ -1,0 +1,76 @@
+﻿@{
+    ViewBag.Title = "Kết quả thanh toán";
+    var appointment = ViewBag.Appointment;
+    var patient = ViewBag.Patient;
+    var doctor = ViewBag.Doctor;
+    var department = ViewBag.Department;
+}
+
+<div class="container mx-auto px-4 py-12 flex justify-center items-center mt-10">
+    <div class="w-full max-w-2xl bg-white rounded-xl shadow-lg p-8 animate-fade-in">
+        <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Kết quả thanh toán</h2>
+
+        @if (ViewBag.Success)
+        {
+                <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-6 rounded-md" role="alert">
+                    <p class="font-bold">🎉 Thanh toán thành công!</p>
+                    <p>@ViewBag.Message</p>
+                </div>
+        }
+        else
+        {
+                <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-6 rounded-md" role="alert">
+                    <p class="font-bold">❌ Thanh toán thất bại.</p>
+                    <p>@ViewBag.Message</p>
+                </div>
+        }
+
+        @if (appointment != null)
+        {
+                <div class="space-y-4 text-gray-700">
+                    <div>
+                        <strong class="block text-gray-900">Mã đơn hàng:</strong>
+                        <span>@ViewBag.OrderId</span>
+                    </div>
+                    <div>
+                        <strong class="block text-gray-900">Khách hàng:</strong>
+                        <span>@patient?.FullName</span>
+                    </div>
+                    <div>
+                        <strong class="block text-gray-900">Bác sĩ:</strong>
+                        <span>@doctor?.FullName</span>
+                    </div>
+                    <div>
+                        <strong class="block text-gray-900">Khoa/Phòng khám:</strong>
+                        <span>@department?.Name</span>
+                    </div>
+                    <div>
+                        <strong class="block text-gray-900">Bệnh lý:</strong>
+                        <span>@ViewBag.DiseaseName</span>
+                    </div>
+                    <div>
+                        <strong class="block text-gray-900">Ngày giờ khám:</strong>
+                        <span>@appointment.AppointmentDate.ToString("dd/MM/yyyy HH:mm")</span>
+                    </div>
+                    <div>
+                        <strong class="block text-gray-900">Số tiền:</strong>
+                        <span class="text-xl font-semibold text-cyan-600">@ViewBag.Amount</span>
+                    </div>
+                    <div>
+                        <strong class="block text-gray-900">Hình thức thanh toán:</strong>
+                        <span>@ViewBag.PayType</span>
+                    </div>
+                </div>
+        }
+        else
+        {
+                <p class="text-red-500 font-medium text-center">Không tìm thấy thông tin lịch khám!</p>
+        }
+
+        <div class="mt-8 text-center">
+            <a href="@Url.Action("Index", "Appointment")" class="inline-block bg-cyan-600 text-white font-semibold px-6 py-3 rounded-full hover:bg-cyan-700 transition-colors duration-300">
+                Quay về trang đặt lịch
+            </a>
+        </div>
+    </div>
+</div>
