@@ -10,6 +10,7 @@ namespace QLBV.DAL.Repositories
         private readonly string _conn;
         public ScheduleRepository(string connectionString) => _conn = connectionString;
 
+        // --- Giữ nguyên ---
         public List<ScheduleDto> GetSchedulesByDoctor(int doctorId)
         {
             var list = new List<ScheduleDto>();
@@ -38,6 +39,7 @@ namespace QLBV.DAL.Repositories
             }
             return list;
         }
+
         public bool IsDoctorAvailable(int doctorId, int scheduleId)
         {
             using (var conn = new SqlConnection(_conn))
@@ -80,5 +82,84 @@ namespace QLBV.DAL.Repositories
             return null;
         }
 
+        // --- CRUD bổ sung ---
+        public List<ScheduleDto> GetAll()
+        {
+            var list = new List<ScheduleDto>();
+            using (var conn = new SqlConnection(_conn))
+            {
+                conn.Open();
+                using (var cmd = new SqlCommand("SELECT ScheduleId, DoctorId, WorkDate, StartTime, EndTime FROM Schedule", conn))
+                {
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            list.Add(new ScheduleDto
+                            {
+                                ScheduleId = (int)reader["ScheduleId"],
+                                DoctorId = (int)reader["DoctorId"],
+                                WorkDate = (DateTime)reader["WorkDate"],
+                                StartTime = (TimeSpan)reader["StartTime"],
+                                EndTime = (TimeSpan)reader["EndTime"]
+                            });
+                        }
+                    }
+                }
+            }
+            return list;
+        }
+
+        public int Add(ScheduleDto dto)
+        {
+            using (var conn = new SqlConnection(_conn))
+            {
+                conn.Open();
+                using (var cmd = new SqlCommand(@"
+                    INSERT INTO Schedule (DoctorId, WorkDate, StartTime, EndTime)
+                    VALUES (@DoctorId, @WorkDate, @StartTime, @EndTime);
+                    SELECT SCOPE_IDENTITY();", conn))
+                {
+                    cmd.Parameters.AddWithValue("@DoctorId", dto.DoctorId);
+                    cmd.Parameters.AddWithValue("@WorkDate", dto.WorkDate);
+                    cmd.Parameters.AddWithValue("@StartTime", dto.StartTime);
+                    cmd.Parameters.AddWithValue("@EndTime", dto.EndTime);
+                    return Convert.ToInt32(cmd.ExecuteScalar());
+                }
+            }
+        }
+
+        public void Update(ScheduleDto dto)
+        {
+            using (var conn = new SqlConnection(_conn))
+            {
+                conn.Open();
+                using (var cmd = new SqlCommand(@"
+                    UPDATE Schedule
+                    SET DoctorId=@DoctorId, WorkDate=@WorkDate, StartTime=@StartTime, EndTime=@EndTime
+                    WHERE ScheduleId=@ScheduleId", conn))
+                {
+                    cmd.Parameters.AddWithValue("@DoctorId", dto.DoctorId);
+                    cmd.Parameters.AddWithValue("@WorkDate", dto.WorkDate);
+                    cmd.Parameters.AddWithValue("@StartTime", dto.StartTime);
+                    cmd.Parameters.AddWithValue("@EndTime", dto.EndTime);
+                    cmd.Parameters.AddWithValue("@ScheduleId", dto.ScheduleId);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public void Delete(int scheduleId)
+        {
+            using (var conn = new SqlConnection(_conn))
+            {
+                conn.Open();
+                using (var cmd = new SqlCommand("DELETE FROM Schedule WHERE ScheduleId=@ScheduleId", conn))
+                {
+                    cmd.Parameters.AddWithValue("@ScheduleId", scheduleId);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
     }
 }

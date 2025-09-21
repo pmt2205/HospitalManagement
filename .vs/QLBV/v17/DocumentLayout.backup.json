@@ -3,24 +3,32 @@
   "WorkspaceRootPath": "F:\\LTCSDL\\New folder\\QLBV\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{F5CC317E-3004-49A1-85D3-3538AE5916C5}|QLBV.WEB\\QLBV.WEB.csproj|f:\\ltcsdl\\new folder\\qlbv\\qlbv.web\\areas\\admin\\views\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F5CC317E-3004-49A1-85D3-3538AE5916C5}|QLBV.WEB\\QLBV.WEB.csproj|solutionrelative:qlbv.web\\areas\\admin\\views\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{F5CC317E-3004-49A1-85D3-3538AE5916C5}|QLBV.WEB\\QLBV.WEB.csproj|f:\\ltcsdl\\new folder\\qlbv\\qlbv.web\\areas\\admin\\views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{F5CC317E-3004-49A1-85D3-3538AE5916C5}|QLBV.WEB\\QLBV.WEB.csproj|solutionrelative:qlbv.web\\areas\\admin\\views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F5CC317E-3004-49A1-85D3-3538AE5916C5}|QLBV.WEB\\QLBV.WEB.csproj|f:\\ltcsdl\\new folder\\qlbv\\qlbv.web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F5CC317E-3004-49A1-85D3-3538AE5916C5}|QLBV.WEB\\QLBV.WEB.csproj|solutionrelative:qlbv.web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F5CC317E-3004-49A1-85D3-3538AE5916C5}|QLBV.WEB\\QLBV.WEB.csproj|f:\\ltcsdl\\new folder\\qlbv\\qlbv.web\\areas\\admin\\views\\user\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F5CC317E-3004-49A1-85D3-3538AE5916C5}|QLBV.WEB\\QLBV.WEB.csproj|solutionrelative:qlbv.web\\areas\\admin\\views\\user\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F5CC317E-3004-49A1-85D3-3538AE5916C5}|QLBV.WEB\\QLBV.WEB.csproj|f:\\ltcsdl\\new folder\\qlbv\\qlbv.web\\areas\\admin\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F5CC317E-3004-49A1-85D3-3538AE5916C5}|QLBV.WEB\\QLBV.WEB.csproj|solutionrelative:qlbv.web\\areas\\admin\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F5CC317E-3004-49A1-85D3-3538AE5916C5}|QLBV.WEB\\QLBV.WEB.csproj|f:\\ltcsdl\\new folder\\qlbv\\qlbv.web\\areas\\admin\\views\\schedule\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F5CC317E-3004-49A1-85D3-3538AE5916C5}|QLBV.WEB\\QLBV.WEB.csproj|solutionrelative:qlbv.web\\areas\\admin\\views\\schedule\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F5CC317E-3004-49A1-85D3-3538AE5916C5}|QLBV.WEB\\QLBV.WEB.csproj|f:\\ltcsdl\\new folder\\qlbv\\qlbv.web\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{F5CC317E-3004-49A1-85D3-3538AE5916C5}|QLBV.WEB\\QLBV.WEB.csproj|solutionrelative:qlbv.web\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{F5CC317E-3004-49A1-85D3-3538AE5916C5}|QLBV.WEB\\QLBV.WEB.csproj|f:\\ltcsdl\\new folder\\qlbv\\qlbv.web\\areas\\admin\\views\\diseasecategory\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F5CC317E-3004-49A1-85D3-3538AE5916C5}|QLBV.WEB\\QLBV.WEB.csproj|solutionrelative:qlbv.web\\areas\\admin\\views\\diseasecategory\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1506729C-9FD6-4AF7-88BC-FF309EA12CDA}|QLBV.DAL\\QLBV.DAL.csproj|f:\\ltcsdl\\new folder\\qlbv\\qlbv.dal\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1506729C-9FD6-4AF7-88BC-FF309EA12CDA}|QLBV.DAL\\QLBV.DAL.csproj|solutionrelative:qlbv.dal\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F5CC317E-3004-49A1-85D3-3538AE5916C5}|QLBV.WEB\\QLBV.WEB.csproj|f:\\ltcsdl\\new folder\\qlbv\\qlbv.web\\areas\\admin\\views\\disease\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F5CC317E-3004-49A1-85D3-3538AE5916C5}|QLBV.WEB\\QLBV.WEB.csproj|solutionrelative:qlbv.web\\areas\\admin\\views\\disease\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F5CC317E-3004-49A1-85D3-3538AE5916C5}|QLBV.WEB\\QLBV.WEB.csproj|f:\\ltcsdl\\new folder\\qlbv\\qlbv.web\\areas\\admin\\views\\department\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F5CC317E-3004-49A1-85D3-3538AE5916C5}|QLBV.WEB\\QLBV.WEB.csproj|solutionrelative:qlbv.web\\areas\\admin\\views\\department\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -35,66 +43,92 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "F:\\LTCSDL\\New folder\\QLBV\\QLBV.WEB\\Areas\\Admin\\Views\\Dashboard\\Index.cshtml",
-              "RelativeDocumentMoniker": "QLBV.WEB\\Areas\\Admin\\Views\\Dashboard\\Index.cshtml",
-              "ToolTip": "F:\\LTCSDL\\New folder\\QLBV\\QLBV.WEB\\Areas\\Admin\\Views\\Dashboard\\Index.cshtml*",
-              "RelativeToolTip": "QLBV.WEB\\Areas\\Admin\\Views\\Dashboard\\Index.cshtml*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "Title": "_AdminLayout.cshtml",
+              "DocumentMoniker": "F:\\LTCSDL\\New folder\\QLBV\\QLBV.WEB\\Areas\\Admin\\Views\\Shared\\_AdminLayout.cshtml",
+              "RelativeDocumentMoniker": "QLBV.WEB\\Areas\\Admin\\Views\\Shared\\_AdminLayout.cshtml",
+              "ToolTip": "F:\\LTCSDL\\New folder\\QLBV\\QLBV.WEB\\Areas\\Admin\\Views\\Shared\\_AdminLayout.cshtml*",
+              "RelativeToolTip": "QLBV.WEB\\Areas\\Admin\\Views\\Shared\\_AdminLayout.cshtml*",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAACsAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-21T08:06:10.598Z",
+              "WhenOpened": "2025-09-21T09:31:34.478Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "DashboardController.cs",
-              "DocumentMoniker": "F:\\LTCSDL\\New folder\\QLBV\\QLBV.WEB\\Areas\\Admin\\Controllers\\DashboardController.cs",
-              "RelativeDocumentMoniker": "QLBV.WEB\\Areas\\Admin\\Controllers\\DashboardController.cs",
-              "ToolTip": "F:\\LTCSDL\\New folder\\QLBV\\QLBV.WEB\\Areas\\Admin\\Controllers\\DashboardController.cs",
-              "RelativeToolTip": "QLBV.WEB\\Areas\\Admin\\Controllers\\DashboardController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-21T08:04:47.605Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "F:\\LTCSDL\\New folder\\QLBV\\QLBV.WEB\\Program.cs",
-              "RelativeDocumentMoniker": "QLBV.WEB\\Program.cs",
-              "ToolTip": "F:\\LTCSDL\\New folder\\QLBV\\QLBV.WEB\\Program.cs*",
-              "RelativeToolTip": "QLBV.WEB\\Program.cs*",
-              "ViewState": "AgIAADwAAAAAAAAAAAAqwEcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-21T07:27:33.47Z",
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "F:\\LTCSDL\\New folder\\QLBV\\QLBV.WEB\\Areas\\Admin\\Views\\User\\Index.cshtml",
+              "RelativeDocumentMoniker": "QLBV.WEB\\Areas\\Admin\\Views\\User\\Index.cshtml",
+              "ToolTip": "F:\\LTCSDL\\New folder\\QLBV\\QLBV.WEB\\Areas\\Admin\\Views\\User\\Index.cshtml",
+              "RelativeToolTip": "QLBV.WEB\\Areas\\Admin\\Views\\User\\Index.cshtml",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAwD0AAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-21T09:29:01.521Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "F:\\LTCSDL\\New folder\\QLBV\\QLBV.WEB\\appsettings.json",
-              "RelativeDocumentMoniker": "QLBV.WEB\\appsettings.json",
-              "ToolTip": "F:\\LTCSDL\\New folder\\QLBV\\QLBV.WEB\\appsettings.json",
-              "RelativeToolTip": "QLBV.WEB\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAowBgAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-09-21T07:24:04.367Z",
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "F:\\LTCSDL\\New folder\\QLBV\\QLBV.WEB\\Areas\\Admin\\Views\\Schedule\\Index.cshtml",
+              "RelativeDocumentMoniker": "QLBV.WEB\\Areas\\Admin\\Views\\Schedule\\Index.cshtml",
+              "ToolTip": "F:\\LTCSDL\\New folder\\QLBV\\QLBV.WEB\\Areas\\Admin\\Views\\Schedule\\Index.cshtml",
+              "RelativeToolTip": "QLBV.WEB\\Areas\\Admin\\Views\\Schedule\\Index.cshtml",
+              "ViewState": "AgIAAB0AAAAAAAAAAADwvzIAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-21T09:27:44.725Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "AppDbContext.cs",
-              "DocumentMoniker": "F:\\LTCSDL\\New folder\\QLBV\\QLBV.DAL\\AppDbContext.cs",
-              "RelativeDocumentMoniker": "QLBV.DAL\\AppDbContext.cs",
-              "ToolTip": "F:\\LTCSDL\\New folder\\QLBV\\QLBV.DAL\\AppDbContext.cs",
-              "RelativeToolTip": "QLBV.DAL\\AppDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-21T07:16:36.995Z",
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "F:\\LTCSDL\\New folder\\QLBV\\QLBV.WEB\\Areas\\Admin\\Views\\DiseaseCategory\\Index.cshtml",
+              "RelativeDocumentMoniker": "QLBV.WEB\\Areas\\Admin\\Views\\DiseaseCategory\\Index.cshtml",
+              "ToolTip": "F:\\LTCSDL\\New folder\\QLBV\\QLBV.WEB\\Areas\\Admin\\Views\\DiseaseCategory\\Index.cshtml",
+              "RelativeToolTip": "QLBV.WEB\\Areas\\Admin\\Views\\DiseaseCategory\\Index.cshtml",
+              "ViewState": "AgIAACIAAAAAAAAAAAAAwDsAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-21T09:27:07.929Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "F:\\LTCSDL\\New folder\\QLBV\\QLBV.WEB\\Areas\\Admin\\Views\\Disease\\Index.cshtml",
+              "RelativeDocumentMoniker": "QLBV.WEB\\Areas\\Admin\\Views\\Disease\\Index.cshtml",
+              "ToolTip": "F:\\LTCSDL\\New folder\\QLBV\\QLBV.WEB\\Areas\\Admin\\Views\\Disease\\Index.cshtml",
+              "RelativeToolTip": "QLBV.WEB\\Areas\\Admin\\Views\\Disease\\Index.cshtml",
+              "ViewState": "AgIAACIAAAAAAAAAAAAAwDsAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-21T09:25:56.513Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "F:\\LTCSDL\\New folder\\QLBV\\QLBV.WEB\\Areas\\Admin\\Views\\Department\\Index.cshtml",
+              "RelativeDocumentMoniker": "QLBV.WEB\\Areas\\Admin\\Views\\Department\\Index.cshtml",
+              "ToolTip": "F:\\LTCSDL\\New folder\\QLBV\\QLBV.WEB\\Areas\\Admin\\Views\\Department\\Index.cshtml",
+              "RelativeToolTip": "QLBV.WEB\\Areas\\Admin\\Views\\Department\\Index.cshtml",
+              "ViewState": "AgIAACIAAAAAAAAAAAAAwDsAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-21T09:19:00.697Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "F:\\LTCSDL\\New folder\\QLBV\\QLBV.WEB\\Areas\\Admin\\Views\\Dashboard\\Index.cshtml",
+              "RelativeDocumentMoniker": "QLBV.WEB\\Areas\\Admin\\Views\\Dashboard\\Index.cshtml",
+              "ToolTip": "F:\\LTCSDL\\New folder\\QLBV\\QLBV.WEB\\Areas\\Admin\\Views\\Dashboard\\Index.cshtml",
+              "RelativeToolTip": "QLBV.WEB\\Areas\\Admin\\Views\\Dashboard\\Index.cshtml",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAACsAAABKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-21T08:42:44.105Z",
               "EditorCaption": ""
             }
           ]

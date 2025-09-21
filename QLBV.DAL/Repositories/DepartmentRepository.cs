@@ -10,54 +10,113 @@ namespace QLBV.DAL.Repositories
         private readonly string _conn;
         public DepartmentRepository(string connectionString) => _conn = connectionString;
 
-        // Lấy tất cả khoa
+        // --- Lấy tất cả khoa ---
         public List<DepartmentDto> GetAll()
         {
             var list = new List<DepartmentDto>();
             using (var conn = new SqlConnection(_conn))
             {
                 conn.Open();
-                var cmd = new SqlCommand("SELECT DepartmentId, Name, BaseFee FROM Department", conn);
-
-                using (var reader = cmd.ExecuteReader())
+                using (var cmd = new SqlCommand("SELECT DepartmentId, Name, Description, BaseFee FROM Department", conn))
                 {
-                    while (reader.Read())
+                    using (var reader = cmd.ExecuteReader())
                     {
-                        list.Add(new DepartmentDto
+                        while (reader.Read())
                         {
-                            DepartmentId = (int)reader["DepartmentId"],
-                            Name = reader["Name"].ToString(),
-                            BaseFee = (decimal)reader["BaseFee"]
-                        });
+                            list.Add(new DepartmentDto
+                            {
+                                DepartmentId = (int)reader["DepartmentId"],
+                                Name = reader["Name"].ToString(),
+                                Description = reader["Description"].ToString(),
+                                BaseFee = (decimal)reader["BaseFee"]
+                            });
+                        }
                     }
                 }
             }
             return list;
         }
 
-        // Lấy thông tin khoa theo Id
+        // --- Lấy khoa theo Id ---
         public DepartmentDto GetById(int id)
         {
             using (var conn = new SqlConnection(_conn))
             {
                 conn.Open();
-                var cmd = new SqlCommand("SELECT DepartmentId, Name, BaseFee FROM Department WHERE DepartmentId=@Id", conn);
-                cmd.Parameters.AddWithValue("@Id", id);
-
-                using (var reader = cmd.ExecuteReader())
+                using (var cmd = new SqlCommand("SELECT DepartmentId, Name, Description, BaseFee FROM Department WHERE DepartmentId=@Id", conn))
                 {
-                    if (reader.Read())
+                    cmd.Parameters.AddWithValue("@Id", id);
+                    using (var reader = cmd.ExecuteReader())
                     {
-                        return new DepartmentDto
+                        if (reader.Read())
                         {
-                            DepartmentId = (int)reader["DepartmentId"],
-                            Name = reader["Name"].ToString(),
-                            BaseFee = (decimal)reader["BaseFee"]
-                        };
+                            return new DepartmentDto
+                            {
+                                DepartmentId = (int)reader["DepartmentId"],
+                                Name = reader["Name"].ToString(),
+                                Description = reader["Description"].ToString(),
+                                BaseFee = (decimal)reader["BaseFee"]
+                            };
+                        }
                     }
                 }
             }
             return null;
+        }
+
+        // --- Thêm mới khoa ---
+        public int Add(DepartmentDto dept)
+        {
+            using (var conn = new SqlConnection(_conn))
+            {
+                conn.Open();
+                using (var cmd = new SqlCommand(@"
+                    INSERT INTO Department (Name, Description, BaseFee)
+                    VALUES (@Name, @Description, @BaseFee);
+                    SELECT SCOPE_IDENTITY();", conn))
+                {
+                    cmd.Parameters.AddWithValue("@Name", dept.Name);
+                    cmd.Parameters.AddWithValue("@Description", dept.Description ?? "");
+                    cmd.Parameters.AddWithValue("@BaseFee", dept.BaseFee);
+
+                    return Convert.ToInt32(cmd.ExecuteScalar());
+                }
+            }
+        }
+
+        // --- Cập nhật khoa ---
+        public void Update(DepartmentDto dept)
+        {
+            using (var conn = new SqlConnection(_conn))
+            {
+                conn.Open();
+                using (var cmd = new SqlCommand(@"
+                    UPDATE Department
+                    SET Name=@Name, Description=@Description, BaseFee=@BaseFee
+                    WHERE DepartmentId=@Id", conn))
+                {
+                    cmd.Parameters.AddWithValue("@Name", dept.Name);
+                    cmd.Parameters.AddWithValue("@Description", dept.Description ?? "");
+                    cmd.Parameters.AddWithValue("@BaseFee", dept.BaseFee);
+                    cmd.Parameters.AddWithValue("@Id", dept.DepartmentId);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+        // --- Xóa khoa ---
+        public void Delete(int id)
+        {
+            using (var conn = new SqlConnection(_conn))
+            {
+                conn.Open();
+                using (var cmd = new SqlCommand("DELETE FROM Department WHERE DepartmentId=@Id", conn))
+                {
+                    cmd.Parameters.AddWithValue("@Id", id);
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
     }
 }

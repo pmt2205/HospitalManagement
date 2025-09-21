@@ -71,5 +71,29 @@ namespace QLBV.DAL.Repositories
             }
             return null;
         }
+
+        public List<DoctorDto> GetAll()
+        {
+            var list = new List<DoctorDto>();
+            using (var conn = new SqlConnection(_conn))
+            {
+                conn.Open();
+                using (var cmd = new SqlCommand("SELECT DoctorId, FullName FROM Doctor", conn))
+                {
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            list.Add(new DoctorDto
+                            {
+                                DoctorId = (int)reader["DoctorId"],
+                                FullName = reader["FullName"].ToString()
+                            });
+                        }
+                    }
+                }
+            }
+            return list;
+        }
     }
 }
