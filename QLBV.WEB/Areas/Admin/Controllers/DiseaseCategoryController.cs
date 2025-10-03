@@ -33,15 +33,24 @@ namespace QLBV.Areas.Admin.Controllers
         }
 
         // GET: Admin/DiseaseCategory/Create
+        // GET: Admin/DiseaseCategory/Create
         public IActionResult Create()
         {
-            ViewBag.Departments = _deptRepo.GetAll();
-            return View();
+            // Lấy danh sách khoa
+            var depts = _deptRepo.GetAll();
+
+            // Kiểm tra debug xem có bao nhiêu phần tử
+            System.Diagnostics.Debug.WriteLine($"Department count: {depts?.Count ?? 0}");
+
+            // Gán vào ViewBag để view dùng
+            ViewBag.Departments = depts ?? new List<DepartmentDto>();
+
+            return View(new DiseaseCategoryDto());
         }
 
-        // POST: Admin/DiseaseCategory/Create
+
+        // POST: Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public IActionResult Create(DiseaseCategoryDto dto)
         {
             if (ModelState.IsValid)
@@ -49,9 +58,12 @@ namespace QLBV.Areas.Admin.Controllers
                 _repo.Add(dto);
                 return RedirectToAction(nameof(Index));
             }
-            ViewBag.Departments = _deptRepo.GetAll();
+
+            // Nếu validate lỗi, bind lại dropdown
+            ViewBag.Departments = _deptRepo.GetAll() ?? new List<DepartmentDto>();
             return View(dto);
         }
+
 
         // GET: Admin/DiseaseCategory/Edit/5
         public IActionResult Edit(int id)
@@ -64,7 +76,6 @@ namespace QLBV.Areas.Admin.Controllers
 
         // POST: Admin/DiseaseCategory/Edit/5
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public IActionResult Edit(DiseaseCategoryDto dto)
         {
             if (ModelState.IsValid)
@@ -86,7 +97,6 @@ namespace QLBV.Areas.Admin.Controllers
 
         // POST: Admin/DiseaseCategory/Delete/5
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(int id)
         {
             _repo.Delete(id);

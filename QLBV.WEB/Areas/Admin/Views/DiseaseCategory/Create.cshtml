@@ -1,0 +1,26 @@
+﻿@model QLBV.DTO.DiseaseCategoryDto
+
+<h2>@(Model.DiseaseCategoryId == 0 ? "Create Category" : "Edit Category")</h2>
+
+<form asp-action="@(Model.DiseaseCategoryId == 0 ? "Create" : "Edit")" method="post">
+    <div class="form-group mb-3">
+        <label>Name</label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label>Department</label>
+        <select asp-for="DepartmentId" class="form-control" asp-items="@(new SelectList(ViewBag.Departments, "DepartmentId", "Name"))">
+            <option value="">-- Select Department --</option>
+        </select>
+    </div>
+
+    <div class="form-group mb-3">
+        <label>Description</label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-success">Save</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>

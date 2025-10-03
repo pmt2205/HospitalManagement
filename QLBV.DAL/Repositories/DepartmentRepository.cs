@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using QLBV.DTO;
 
@@ -75,9 +76,10 @@ namespace QLBV.DAL.Repositories
                     VALUES (@Name, @Description, @BaseFee);
                     SELECT SCOPE_IDENTITY();", conn))
                 {
-                    cmd.Parameters.AddWithValue("@Name", dept.Name);
-                    cmd.Parameters.AddWithValue("@Description", dept.Description ?? "");
-                    cmd.Parameters.AddWithValue("@BaseFee", dept.BaseFee);
+                    cmd.Parameters.Add("@Name", SqlDbType.NVarChar, 100).Value = dept.Name ?? "";
+                    cmd.Parameters.Add("@Description", SqlDbType.NVarChar, 500).Value = dept.Description ?? "";
+                    cmd.Parameters.Add("@BaseFee", SqlDbType.Decimal).Value = dept.BaseFee;
+
 
                     return Convert.ToInt32(cmd.ExecuteScalar());
                 }

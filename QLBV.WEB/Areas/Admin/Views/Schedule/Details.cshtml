@@ -1,0 +1,20 @@
+﻿@model QLBV.DTO.ScheduleDto
+
+<h2>Schedule Details</h2>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">ID</dt>
+        <dd class="col-sm-10">@Model.ScheduleId</dd>
+        <dt class="col-sm-2">DoctorId</dt>
+        <dd class="col-sm-10">@Model.DoctorId</dd>
+        <dt class="col-sm-2">Work Date</dt>
+        <dd class="col-sm-10">@Model.WorkDate.ToShortDateString()</dd>
+        <dt class="col-sm-2">Start Time</dt>
+        <dd class="col-sm-10">@Model.StartTime</dd>
+        <dt class="col-sm-2">End Time</dt>
+        <dd class="col-sm-10">@Model.EndTime</dd>
+    </dl>
+</div>
+
+<a asp-action="Index" class="btn btn-secondary">Back to List</a>

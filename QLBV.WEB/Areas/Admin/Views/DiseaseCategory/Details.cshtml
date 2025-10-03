@@ -1,0 +1,18 @@
+﻿@model QLBV.DTO.DiseaseCategoryDto
+
+<h2>Disease Category Details</h2>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">ID</dt>
+        <dd class="col-sm-10">@Model.DiseaseCategoryId</dd>
+        <dt class="col-sm-2">Name</dt>
+        <dd class="col-sm-10">@Model.Name</dd>
+        <dt class="col-sm-2">Department</dt>
+        <dd class="col-sm-10">@Model.DepartmentId</dd>
+        <dt class="col-sm-2">Description</dt>
+        <dd class="col-sm-10">@Model.Description</dd>
+    </dl>
+</div>
+
+<a asp-action="Index" class="btn btn-secondary">Back to List</a>

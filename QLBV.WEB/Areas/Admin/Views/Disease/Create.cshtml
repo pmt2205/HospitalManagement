@@ -1,0 +1,30 @@
+﻿@model QLBV.DTO.DiseaseCategoryDto
+
+<h2>Thêm danh mục bệnh</h2>
+
+<form asp-action="Create" method="post">
+    <div>
+        <label>Tên</label>
+        <input asp-for="Name" class="border p-2 rounded" />
+    </div>
+    <div>
+        <label>Mô tả</label>
+        <textarea asp-for="Description" class="border p-2 rounded"></textarea>
+    </div>
+    <div>
+        <label>Khoa</label>
+        @{
+            var departments = ViewBag.Departments as IEnumerable<QLBV.DTO.DepartmentDto> ?? Enumerable.Empty<QLBV.DTO.DepartmentDto>();
+        }
+        <select asp-for="DepartmentId" class="border p-2 rounded">
+            <option value="">-- Chọn khoa --</option>
+            @foreach (var d in departments)
+            {
+                    <option value="@d.DepartmentId" @(Model.DepartmentId == d.DepartmentId ? "selected" : "")>
+                    @d.Name
+                    </option>
+            }
+        </select>
+    </div>
+    <button type="submit" class="bg-cyan-600 text-white px-4 py-2 rounded mt-2">Lưu</button>
+</form>

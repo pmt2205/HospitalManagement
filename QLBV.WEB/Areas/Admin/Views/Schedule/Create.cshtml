@@ -1,0 +1,30 @@
+﻿@model QLBV.DTO.ScheduleDto
+
+<h2>@(Model.ScheduleId == 0 ? "Create Schedule" : "Edit Schedule")</h2>
+
+<form asp-action="@(Model.ScheduleId == 0 ? "Create" : "Edit")" method="post">
+    <div class="form-group mb-3">
+        <label>Doctor</label>
+        <select asp-for="DoctorId" class="form-control" asp-items="@(new SelectList(ViewBag.Doctors, "DoctorId", "FullName"))">
+            <option value="">-- Select Doctor --</option>
+        </select>
+    </div>
+
+    <div class="form-group mb-3">
+        <label>Work Date</label>
+        <input asp-for="WorkDate" type="date" class="form-control" />
+    </div>
+
+    <div class="form-group mb-3">
+        <label>Start Time</label>
+        <input asp-for="StartTime" type="time" class="form-control" />
+    </div>
+
+    <div class="form-group mb-3">
+        <label>End Time</label>
+        <input asp-for="EndTime" type="time" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-success">Save</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>

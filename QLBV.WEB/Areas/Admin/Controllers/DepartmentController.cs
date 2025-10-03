@@ -34,21 +34,22 @@ namespace QLBV.Areas.Admin.Controllers
         // GET: Admin/Department/Create
         public IActionResult Create()
         {
-            return View();
+            var model = new DepartmentDto(); // khởi tạo instance mới
+            return View(model);
         }
+
 
         // POST: Admin/Department/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        [Area("Admin")]
         public IActionResult Create(DepartmentDto dept)
         {
-            if (ModelState.IsValid)
-            {
-                _deptRepo.Add(dept);
-                return RedirectToAction(nameof(Index));
-            }
-            return View(dept);
+            _deptRepo.Add(dept); // dữ liệu chắc chắn bind được
+            return RedirectToAction("Index");
         }
+
+
+
 
         // GET: Admin/Department/Edit/5
         public IActionResult Edit(int id)
@@ -60,7 +61,6 @@ namespace QLBV.Areas.Admin.Controllers
 
         // POST: Admin/Department/Edit/5
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public IActionResult Edit(DepartmentDto dept)
         {
             if (ModelState.IsValid)
@@ -81,7 +81,6 @@ namespace QLBV.Areas.Admin.Controllers
 
         // POST: Admin/Department/Delete/5
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(int id)
         {
             _deptRepo.Delete(id);

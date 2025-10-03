@@ -1,7 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using QLBV.DTO;
 using QLBV.DAL.Entities;
 using QLBV.DAL.Repositories;
-using Microsoft.AspNetCore.Authorization;
+using System;
+using System.Text;
+using System.Security.Cryptography;
+using System.Collections.Generic;
 
 namespace QLBV.Areas.Admin.Controllers
 {
@@ -22,14 +26,6 @@ namespace QLBV.Areas.Admin.Controllers
             return View(users);
         }
 
-        // GET: Admin/User/Details/5
-        public IActionResult Details(int id)
-        {
-            var user = _userRepo.GetById(id);
-            if (user == null) return NotFound();
-            return View(user);
-        }
-
         // GET: Admin/User/Create
         public IActionResult Create()
         {
@@ -38,15 +34,28 @@ namespace QLBV.Areas.Admin.Controllers
 
         // POST: Admin/User/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult Create(User user)
+        public IActionResult Create(UserDto dto)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
+                return View(dto);
+
+            if (string.IsNullOrWhiteSpace(dto.Password))
             {
-                _userRepo.Add(user);
-                return RedirectToAction(nameof(Index));
+                ModelState.AddModelError("Password", "Password không được để trống");
+                return View(dto);
             }
-            return View(user);
+
+            var user = new User
+            {
+                Username = dto.Username,
+                PasswordHash = HashPassword(dto.Password),
+                FullName = dto.FullName,
+                Email = dto.Email,
+                Role = string.IsNullOrEmpty(dto.Role) ? "Patient" : dto.Role
+            };
+
+            _userRepo.Add(user);
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: Admin/User/Edit/5
@@ -59,7 +68,6 @@ namespace QLBV.Areas.Admin.Controllers
 
         // POST: Admin/User/Edit/5
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public IActionResult Edit(User user)
         {
             if (ModelState.IsValid)
@@ -73,18 +81,16 @@ namespace QLBV.Areas.Admin.Controllers
         // GET: Admin/User/Delete/5
         public IActionResult Delete(int id)
         {
-            var user = _userRepo.GetById(id);
-            if (user == null) return NotFound();
-            return View(user);
-        }
-
-        // POST: Admin/User/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public IActionResult DeleteConfirmed(int id)
-        {
             _userRepo.Delete(id);
             return RedirectToAction(nameof(Index));
+        }
+
+        // Hash password an toàn
+        private string HashPassword(string password)
+        {
+            using var sha256 = SHA256.Create();
+            var bytes = Encoding.UTF8.GetBytes(password);
+            return Convert.ToBase64String(sha256.ComputeHash(bytes));
         }
     }
 }

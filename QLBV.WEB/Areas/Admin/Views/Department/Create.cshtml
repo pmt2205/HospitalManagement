@@ -1,0 +1,32 @@
+﻿@model QLBV.DTO.DepartmentDto
+
+@{
+    ViewData["Title"] = "Thêm Phòng Ban Mới";
+    Layout = "_AdminLayout";
+}
+
+<div class="p-6 bg-white rounded-lg shadow-md max-w-xl mx-auto mt-10">
+    <h2 class="text-2xl font-bold text-gray-800 mb-6">@ViewData["Title"]</h2>
+
+    <form action="/Admin/Department/Create" method="post" class="space-y-4">
+        <div>
+            <label class="block text-gray-700 font-semibold mb-1">Tên</label>
+            <input type="text" name="Name" value="@Model.Name" class="w-full border border-gray-300 rounded-lg p-2" required />
+        </div>
+
+        <div>
+            <label class="block text-gray-700 font-semibold mb-1">Mô tả</label>
+            <textarea name="Description" class="w-full border border-gray-300 rounded-lg p-2" rows="3">@Model.Description</textarea>
+        </div>
+
+        <div>
+            <label class="block text-gray-700 font-semibold mb-1">Phí cơ bản</label>
+            <input type="number" name="BaseFee" value="@Model.BaseFee" step="0.01" class="w-full border border-gray-300 rounded-lg p-2" required />
+        </div>
+
+        <div class="flex justify-end space-x-2 mt-4">
+            <a href="/Admin/Department" class="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400">Hủy</a>
+            <button type="submit" class="px-4 py-2 bg-cyan-600 text-white rounded hover:bg-cyan-700">Lưu</button>
+        </div>
+    </form>
+</div>

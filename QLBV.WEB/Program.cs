@@ -29,7 +29,7 @@ builder.Services.AddScoped<AppointmentService>();
 builder.Services.AddScoped<DiseaseCategoryService>();
 builder.Services.AddScoped<DiseaseService>();
 builder.Services.AddScoped<MomoService>();
-
+builder.Services.AddScoped<PatientService>();
 
 // --- MVC ---
 builder.Services.AddControllersWithViews();

@@ -13,14 +13,14 @@ namespace QLBV.WEB.Controllers
         private readonly DiseaseCategoryService _diseaseCategoryService;
         private readonly DiseaseService _diseaseService;
         private readonly MomoService _momoService;
-
+        private readonly PatientService _patientService;
         public AppointmentController(
             AppointmentService appointmentService,
             DepartmentService departmentService,
             DoctorService doctorService,
             DiseaseCategoryService diseaseCategoryService,
             DiseaseService diseaseService,
-            MomoService momoService)
+            MomoService momoService, PatientService patientService)
         {
             _appointmentService = appointmentService;
             _departmentService = departmentService;
@@ -28,6 +28,7 @@ namespace QLBV.WEB.Controllers
             _diseaseCategoryService = diseaseCategoryService;
             _diseaseService = diseaseService;
             _momoService = momoService;
+            _patientService = patientService;
         }
 
         // Bước 1: Chọn khoa
@@ -82,13 +83,13 @@ namespace QLBV.WEB.Controllers
         public async Task<IActionResult> Book(AppointmentDto dto, string paymentMethod)
         {
             // 1. Lấy PatientId từ claim
-            var patientIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
-            if (patientIdClaim == null)
+            int userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
+            var patient = _patientService.GetByUserId(userId);
+            if (patient == null)
             {
-                TempData["Error"] = "Bạn chưa đăng nhập.";
-                return RedirectToAction("Login", "Account");
+                return ReturnToSchedule(dto.DoctorId, "Không tìm thấy hồ sơ bệnh nhân.");
             }
-            dto.PatientId = int.Parse(patientIdClaim.Value);
+            dto.PatientId = patient.PatientId;
 
             // 2. Lấy schedule
             var schedule = _appointmentService.GetScheduleById(dto.ScheduleId);
